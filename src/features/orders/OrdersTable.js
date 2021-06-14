@@ -5,6 +5,7 @@ import {
   IndexTable,
   TextStyle,
   useIndexResourceState,
+  Badge,
 } from '@shopify/polaris';
 import { updateOrders } from './ordersSlice';
 import {fetchData} from './ordersAPI'
@@ -48,6 +49,9 @@ export default function OrdersTable() {
         <IndexTable.Cell>{date}</IndexTable.Cell>
         <IndexTable.Cell>{customer_name}</IndexTable.Cell>
         <IndexTable.Cell>{price}</IndexTable.Cell>
+        <IndexTable.Cell>
+          <Badge progress="complete">Paid</Badge>
+        </IndexTable.Cell>
       </IndexTable.Row>
     ),
   );
