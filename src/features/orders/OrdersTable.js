@@ -6,13 +6,13 @@ import {
   TextStyle,
   useIndexResourceState,
 } from '@shopify/polaris';
-import { updateOrders } from './tableSlice';
-import {fetchData} from './tableAPI'
+import { updateOrders } from './ordersSlice';
+import {fetchData} from './ordersAPI'
 
 
-export default function Table() {
+export default function OrdersTable() {
 
-  const ordersData = useSelector(state => state.table.data);
+  const ordersData = useSelector(state => state.orders.data);
   const dispatch = useDispatch();
   
   useEffect(() => {

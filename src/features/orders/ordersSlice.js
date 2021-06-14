@@ -2,11 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   data: [],
-  pending: false,
 };
 
-export const tableSlice = createSlice({
-  name: 'table',
+export const ordersSlice = createSlice({
+  name: 'orders',
   initialState,
   reducers: {
     updateOrders: (state, action) => {
@@ -15,6 +14,6 @@ export const tableSlice = createSlice({
   }
 });
 
-export const {updateOrders} = tableSlice.actions;
+export const {updateOrders} = ordersSlice.actions;
 
-export default tableSlice.reducer;
+export default ordersSlice.reducer;
