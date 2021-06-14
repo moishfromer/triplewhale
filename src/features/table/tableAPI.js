@@ -14,11 +14,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 
-// A mock function to mimic making an async request for data
 export function fetchData() {
-  return db.collection("orders").get()
-  .then((querySnapshot) => ({
-    data: querySnapshot.docs.map(doc=>doc.data())
-  }))
+  return db.collection("orders")
 }
 

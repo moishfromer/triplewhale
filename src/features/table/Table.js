@@ -6,14 +6,22 @@ import {
   TextStyle,
   useIndexResourceState,
 } from '@shopify/polaris';
-import { fetchOrdersData } from './tableSlice';
+import { updateOrders } from './tableSlice';
+import {fetchData} from './tableAPI'
 
 
 export default function Table() {
 
   const ordersData = useSelector(state => state.table.data);
   const dispatch = useDispatch();
-  useEffect(() => dispatch(fetchOrdersData()), [dispatch])
+  
+  useEffect(() => {
+    const unsubscribe = fetchData().onSnapshot(querySnapshot => {
+      const orders = querySnapshot.docs.map(doc=>doc.data())
+      dispatch(updateOrders(orders))
+    })
+    return unsubscribe
+  }, [dispatch])
 
   const resourceName = {
     singular: 'order',
